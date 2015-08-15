@@ -447,7 +447,7 @@ Issue: Is compressing assets (images, CSS, Javascript and HTML) to reduce file s
 
 Issue: how about using presence of manifest.json as trigger, as what defines a publication as something different than an ordinary bundle of web content? Properties in manifest.json can act as hints to UA/Browsing Context that the thing is “bookish”
 
-Issue: Should we use external packaging tools like Grunt or Gulp to package content for epub-zero?
+Issue: Should we use external packaging tools like Grunt or Gulp to package content for epub-zero? If we do should we provide default configuration files (package.json and Gruntfile.js)
 
 <h2 id="metadata">Metadata</h2>
 
