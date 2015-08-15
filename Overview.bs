@@ -330,7 +330,18 @@ Taking the same example as above, a service worker may look like this:
 
 <div class='example'>
 <pre>
-thena-framework/content/',
+
+importScripts('js/serviceworker-cache-polyfill.js');
+
+var CACHE_NAME = 'ebook-demo';
+var CACHE_VERSION = 1;
+
+self.oninstall = function(event) {
+
+  event.waitUntil(
+    caches.open(CACHE_NAME + '-v' + CACHE_VERSION).then(function(cache) {
+
+      return cache.addAll([
         'css/mobydick.css,
         'metadata.json',
         'manifest.json',
