@@ -411,7 +411,7 @@ self.onfetch = function(event) {
 </pre>
 </div>
 
-They can also be used to change the object being requested. In the example below we intercept all request for jpg images (requests that end with .jpg) and instead respond with a Google doodle. fetch() requests are <a href='http://www.html5rocks.com/en/tutorials/cors/'>CORS</a> by default, but by setting no-cors I can use the response even if it doesn't have CORS access headers (although I can't access the content with JavaScript). Here's a demo of that.
+They can also be used to change the object being requested. In the example below we intercept all request for jpg images (requests that end with .jpg) and instead respond with a Google logo. fetch() requests are <a href='http://www.html5rocks.com/en/tutorials/cors/'>CORS</a> by default, but by setting no-cors I can use the response even if it doesn't have CORS access headers.
 
 <div class='example'>
 <pre>self.addEventListener('fetch', function(event) {
