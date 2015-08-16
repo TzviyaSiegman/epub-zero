@@ -1,8 +1,8 @@
 <h1>EPUB Zero</h1>
 
 <style type="text/css">
-td, th { 
-vertical-align: top; 
+td, th {
+vertical-align: top;
 border: thin solid #aaa;
 padding: 2px;
 }
@@ -10,7 +10,7 @@ padding: 2px;
 th {
 text-align: left;
 }
-table { 
+table {
 border-collapse: collapse;
 }
 </style>
@@ -30,9 +30,9 @@ Introduction
 </h2>
 
 
-Note: This specification is only a thought experiment, inspired by the <a href="http://w3c.github.io/epubweb/">EPUB+WEB White Paper</a> (by the <a href="https://www.w3.org/dpub/IG/wiki/">W3C Digital Publishing Interest Group</a> and the <a href="idpf.org">IDPF</a>) and by concerns about the complexity of EPUB3. Please join the Digital Publishing Interest Group and IDPF to help bring about a better future for ebooks. 
+Note: This specification is only a thought experiment, inspired by the <a href="http://w3c.github.io/epubweb/">EPUB+WEB White Paper</a> (by the <a href="https://www.w3.org/dpub/IG/wiki/">W3C Digital Publishing Interest Group</a> and the <a href="idpf.org">IDPF</a>) and by concerns about the complexity of EPUB3. Please join the Digital Publishing Interest Group and IDPF to help bring about a better future for ebooks.
 
-A book, in the digital world, is a reading mode, not a file format. The Open Web Platform provides us with most of what we need for the content, style, and behavior of a publication. EPUB Zero aims to make publications just another part of the web. 
+A book, in the digital world, is a reading mode, not a file format. The Open Web Platform provides us with most of what we need for the content, style, and behavior of a publication. EPUB Zero aims to make publications just another part of the web.
 
 EPUB3 is complex. It requires numerous custom XML vocabularies, and massive repetition of content. Developing a reading system for EPUB3 is a herculean task, as evidenced by the slow progress of Readium. Our goal is to create a simpler publication format, easier to author, and easy to read in a browser with as little additional technology as possible.
 
@@ -63,7 +63,7 @@ EPUB Zero is yet another ebook format, which isn't just “based on” HTML like
 3. Installable via application manifest
 4. Access to navigation document via sidebar link relation
 
-But each of these features are problematic. As this document evolves, we hope to propose alternatives. 
+But each of these features are problematic. As this document evolves, we hope to propose alternatives.
 
 <figure>
 <img src="images/reading-e0-opera.png" alt="screenshot of an epub zero in the Opera browser" width="640"/>
@@ -191,11 +191,11 @@ Content documents
 
 An EPUB Zero content document is an HTML5 document.
 
-Issue: Can SVG or raster images be a content document? Does [[HTML5]] define required media types?  
+Issue: Can SVG or raster images be a content document? Does [[HTML5]] define required media types?
 
 <h3 id="style">Style</h3>
 
-There are no restrictions on the use of CSS. 
+There are no restrictions on the use of CSS.
 
 
 <h4 id="pagination">
@@ -204,26 +204,26 @@ Pagination
 
 Pagination is essential for an optimum long-form reading experience. Several approaches to pagination may be possible:
 
-1. Native support exists in Opera 12.16, via <code>overflow: paged</code>. 
+1. Native support exists in Opera 12.16, via <code>overflow: paged</code>.
 
-2. Polyfills exist, based on either multicol or regions. 
+2. Polyfills exist, based on either multicol or regions.
 
 3. Project Houdini may expose primitives making prollyfills possible.
 
 
-Note: Reading long-form content in paginated form often offers a better experience for readers. We encourage document authors to support pagination via CSS, polyfills, prollyfills, reading systems, and/or political action. 
+Note: Reading long-form content in paginated form often offers a better experience for readers. We encourage document authors to support pagination via CSS, polyfills, prollyfills, reading systems, and/or political action.
 
 <h4 id="page-transitions">
 Page Transitions
 </h4>
 
-A book may consist of several HTML files. A user must be able to move from ch1.html to ch2.html as easily as moving from page 1 to page 2, and with the same action. 
+A book may consist of several HTML files. A user must be able to move from ch1.html to ch2.html as easily as moving from page 1 to page 2, and with the same action.
 
 Note: discussed by CSSWG in thread starting at https://lists.w3.org/Archives/Public/www-style/2014Jan/0093.html
 
-HTML5 link relations support describing previous and next files. 
+HTML5 link relations support describing previous and next files.
 
-Issue: Opera and Firefox have UI for <code>link rel=prev|next</code>, but Safari, Chrome, and IE do not. 
+Issue: Opera and Firefox have UI for <code>link rel=prev|next</code>, but Safari, Chrome, and IE do not.
 
 <h3 id="interactivity">Interactivity</h3>
 
@@ -237,13 +237,17 @@ Issue: Security for downloaded publications. How is this handled with appcache a
 
 Issue: Browsers (as far as we know) do not support SMIL. Are there polyfills that are “good enough?” Is there a better approach for synchronizing [[HTML5]] with multimedia?
 
+Issue: Support for SMIL is not implemented (Edge) or has been deprecated (Chrome.)
+
+
+
 <h3 id="global">Global Language Support</h3>
 
 <h3 id="navigation">Navigation</h3>
 
 Most reading systems provide a link to the navigation document as part of the reading system user interface.
 
-Note: In Opera and Firefox, opening a link with <code>rel=sidebar</code> can open a navigation document in the "secondary browsing context", aka sidebar. This does not work in Safari, Chrome, or IE. 
+Note: In Opera and Firefox, opening a link with <code>rel=sidebar</code> can open a navigation document in the "secondary browsing context", aka sidebar. This does not work in Safari, Chrome, or IE.
 
 <h3 id="fxl">Fixed Layout</h3>
 
@@ -251,13 +255,13 @@ Issue: FXL is often a bad idea
 
 <h3 id="a11y">Accessibility</h3>
 
-Issue: How do we make EPUB Zero documents “born accessible?” EPUB 3.0 requires a <code>nav</code> document. EDUPUB requires the <code>section</code> element, and proper use of [[HTML5]] heading elements. 
+Issue: How do we make EPUB Zero documents “born accessible?” EPUB 3.0 requires a <code>nav</code> document. EDUPUB requires the <code>section</code> element, and proper use of [[HTML5]] heading elements.
 
-Issue: What's the state of text-to-speech support in browsers? 
+Issue: What's the state of text-to-speech support in browsers?
 
 <h2 id="installing">Installing EPUB Zero publications</h2>
 
-EPUB Zero uses the web manifest specification https://w3c.github.io/manifest/ to facilitate installation as a webapp on user devices. 
+EPUB Zero uses the web manifest specification https://w3c.github.io/manifest/ to facilitate installation as a webapp on user devices.
 
 <div class="example">
 <pre>{
@@ -273,15 +277,15 @@ EPUB Zero uses the web manifest specification https://w3c.github.io/manifest/ to
 }</pre>
 </div>
 
-Issue: the <code>display</code> property is interesting. Adding an additional value <code>"display": "book"</code> might be a good way of indicating to the browser that it should display the content with a UI optimized for long-form content. 
+Issue: the <code>display</code> property is interesting. Adding an additional value <code>"display": "book"</code> might be a good way of indicating to the browser that it should display the content with a UI optimized for long-form content.
 
 
 
 <h2 id="offline">Offline reading</h2>
 
-Books must be readable offline and online. 
+Books must be readable offline and online.
 
-Issue: Is offline reading really the same question as packaging/archiving? 
+Issue: Is offline reading really the same question as packaging/archiving?
 
 Browsers currently offer ways of accessing web content while offline:
 
@@ -310,7 +314,7 @@ c002.html
 </pre>
 </div>
 
-Note: this seems to handle the issue of updating ebooks—make a change to the cache manifest on the server and new files will be uploaded the next time the reader is online. 
+Note: this seems to handle the issue of updating ebooks—make a change to the cache manifest on the server and new files will be uploaded the next time the reader is online.
 
 Issue: AppCache sucks. Can we replace it with Service Workers?
 
@@ -318,15 +322,125 @@ Issue: AppCache sucks. Can we replace it with Service Workers?
 Service Workers
 </3>
 
+Service Workers (<a href='https://github.com/slightlyoff/ServiceWorker/blob/master/explainer.md'>Explainer</a> | <a href='https://slightlyoff.github.io/ServiceWorker/spec/service_worker/'>Specification</a>) provides an imperative way to create offline caching solutions for web-based applications.
 
+The specification was created in direct response to the shortcomings of AppCache and other earlier attempts at creating an offline experience. Rather than being a 'black box' where people can just plug their content and see the 'black box' work without real knowledge of what's going on to make the caching happen, Service Workers force developers to be explicit about the behaviors they want , what caching strategies they want to use for what portions of their content.
+
+Taking the same example as above, a service worker may look like this:
+
+<div class='example'>
+<pre>
+
+importScripts('js/serviceworker-cache-polyfill.js');
+
+var CACHE_NAME = 'ebook-demo';
+var CACHE_VERSION = 1;
+
+self.oninstall = function(event) {
+
+  event.waitUntil(
+    caches.open(CACHE_NAME + '-v' + CACHE_VERSION).then(function(cache) {
+
+      return cache.addAll([
+        'css/mobydick.css,
+        'metadata.json',
+        'manifest.json',
+        'title-page.html',
+        'copyright.html',
+        'introduction.html',
+        'epigraph.html',
+        'c001.html',
+        'c002.html'
+      ]);
+    })
+  );
+};
+
+self.onactivate = function(event) {
+
+  var currentCacheName = CACHE_NAME + '-v' + CACHE_VERSION;
+  caches.keys().then(function(cacheNames) {
+    return Promise.all(
+      cacheNames.map(function(cacheName) {
+        if (cacheName.indexOf(CACHE_NAME) == -1) {
+          return;
+        }
+
+        if (cacheName != currentCacheName) {
+          return caches.delete(cacheName);
+        }
+      })
+    );
+  });
+
+};
+
+self.onfetch = function(event) {
+  var request = event.request;
+  var requestURL = new URL(event.request.url);
+
+  event.respondWith(
+
+    // Check the cache for a hit.
+    caches.match(request).then(function(response) {
+
+      // If we have a response return it.
+      if (response)
+        return response;
+
+      // Otherwise fetch it, store and respond.
+      return fetch(request).then(function(response) {
+
+        var responseToCache = response.clone();
+
+        caches.open(CACHE_NAME + '-v' + CACHE_VERSION).then(
+          function(cache) {
+            cache.put(request, responseToCache).catch(function(err) {
+              // Likely we got an opaque response which the polyfill
+              // can't deal with, so log out a warning.
+              console.warn(requestURL + ': ' + err.message);
+            });
+          });
+
+        return response;
+      });
+
+    })
+  );
+};
+</pre>
+</div>
+
+They can also be used to change the object being requested. In the example below we intercept all request for jpg images (requests that end with .jpg) and instead respond with a Google logo. fetch() requests are <a href='http://www.html5rocks.com/en/tutorials/cors/'>CORS</a> by default, but by setting no-cors I can use the response even if it doesn't have CORS access headers.
+
+<div class='example'>
+<pre>self.addEventListener('fetch', function(event) {
+  if (/\.jpg$/.test(event.request.url)) {
+    event.respondWith(
+      fetch('https://www.google.com/images/srpr/logo11w.png', {
+        mode: 'no-cors'
+      })
+    );
+  }
+});
+</pre>
+</div>
+
+Service Workers are also the basis for additional features such as <a href='https://developers.google.com/web/updates/2015/03/push-notificatons-on-the-open-web'>Push Notifications</a> and <a href='https://github.com/slightlyoff/BackgroundSync/blob/master/explainer.md'>Background Synchronization</a>
+
+Note: There are different <a href='https://jakearchibald.com/2014/offline-cookbook/'>content caching strategies</a> to use with Service Workers. Should we consider multiple strategies as suggested in the article? Would this benefit epub-zero?
+
+Issue: Service workers will only work in domains served through https.
+
+Issue: How do we handle older browsers that don't support Service Workers or their components?
 
 <h2 id="structure">
 Publication structure and packaging
 </h2>
 
-Issue: the EPUB+WEB White Paper discusses offline access together with packaging. Are these in fact the same issue? 
+Issue: the EPUB+WEB White Paper discusses offline access together with packaging. Are these in fact the same issue?
 
-An EPUB Zero publication is a collection of files, which must be collected inside a folder or directory. The top level of the directory should contain the web manifest and cache manifest. No other restrictions exist on the directory structure. 
+An EPUB Zero publication is a collection of files, which must be collected inside a folder or directory. The top level of the directory should contain the web manifest and cache manifest. No other restrictions exist on the directory structure.
 
 Compressing or otherwise packaging this directory may be required for many reasons, including
 
@@ -338,12 +452,15 @@ Compressing or otherwise packaging this directory may be required for many reaso
 
 In simple cases, using ZIP may be sufficient. The W3C WebApps Packaging format may prove useful as well http://w3ctag.github.io/packaging-on-the-web/
 
+Issue: You can make a service worker fetch content from the network first and, only if the network is not available, check the cache to see if content is available. Would this work as a packaging strategy? How does it affect DRM or streaming of content?
+
+Issue: Is compressing assets (images, CSS, Javascript and HTML) to reduce file size part of the packaging?
+
 Issue: how about using presence of manifest.json as trigger, as what defines a publication as something different than an ordinary bundle of web content? Properties in manifest.json can act as hints to UA/Browsing Context that the thing is “bookish”
 
+Issue: Should we use external packaging tools like Grunt or Gulp to package content for epub-zero? If we do should we provide default configuration files (package.json and Gruntfile.js)
 
-<h2 id="metadata">
-Metadata
-</h2>
+<h2 id="metadata">Metadata</h2>
 
 Publication-level metadata can be stored in the publication folder. We recommend the use of JSON-LD as a metadata format, but different communities may use other formats such as RDF, Turtle, or ONIX.
 
@@ -398,8 +515,6 @@ Publication-level metadata can be stored in the publication folder. We recommend
     "name": "Harper &amp; Row"
   }
 }
-
-
 </pre>
 </div>
 
@@ -417,7 +532,7 @@ EPUB Zero was originally inspired by a series of posts on EPUB3 by Daniel Glazma
 Reading system behaviour
 </h2>
 
-1. a user agent receives an http request 
+1. a user agent receives an http request
 
 <pre>
 GET /urn:isbn:9780316123456
@@ -431,8 +546,8 @@ Issue: what if there's a zip (or any compressed file) or .e0 there?
 
 3. If manifest.json does not exist
     a. if index.html exists open that
-    b. if index.html doesn't exist open first html file 
-    c. if there are no html files open the first supported format 
+    b. if index.html doesn't exist open first html file
+    c. if there are no html files open the first supported format
     d. otherwise error "there is not a book here"
 
 
